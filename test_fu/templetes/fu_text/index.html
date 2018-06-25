@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>自定义使用tinymce</title>
+    <script type="text/javascript" src='/static/js/tiny_mce_src.js'></script>
+     <script src="/static/js/jquery-1.10.2.min.js"></script>
+{#    <script>#}
+{#        $(function () {#}
+{#           $('#btnJson') .click(function () {#}
+{#               $.get('/booktest/json1',function (data) {#}
+{#                   ul = $('#jsonList');#}
+{#                    ul.append('<li>'+data['h1']+'</li>')#}
+{#                    ul.append('<li>'+data['h2']+'</li>')#}
+{#               })#}
+{#           })#}
+{#        })#}
+{#    </script>#}
+    <script type="text/javascript">
+        tinyMCE.init({
+            'mode':'textareas',
+            'theme':'advanced',
+            'width':400,
+            'height':100
+        });
+    </script>
+</head>
+<body>
+<form method="post" action="/fu_text/detail">
+    {% csrf_token %}
+    <textarea name='gcontent'>请在这里输入文字：</textarea>
+    <input type="submit" id="btnJson" value='提交'>
+</form>
+</body>
+</html>
